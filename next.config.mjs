@@ -10,7 +10,7 @@ const withBundleAnalyzer = NextBundleAnalyzer({
  * Start the Fumadocs MDX server which generates .source/ files
  * from content/ directory. This runs separately from the webpack loader.
  */
-if (process.env._FUMADOCS_MDX !== '1') {
+if (process.env.NODE_ENV !== 'production' && process.env._FUMADOCS_MDX !== '1') {
   process.env._FUMADOCS_MDX = '1';
   void start(process.env.NODE_ENV === 'development', 'source.config.ts', '.source');
 }
